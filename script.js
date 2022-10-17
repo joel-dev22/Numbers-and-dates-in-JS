@@ -269,6 +269,7 @@ console.log(Number.isFinite(22 / 2));
 */
 
 // Rounding
+/*
 console.log(Math.sqrt(36));
 console.log(36 ** 0.5);
 
@@ -286,3 +287,18 @@ console.log(Math.ceil(33.2));
 console.log(Math.floor(33.9));
 
 console.log(+(2.3).toFixed(3));
+*/
+
+// Remainder operator
+console.log(5 % 2);
+console.log(8 % 3);
+
+const isEven = n => n % 2 === 0;
+console.log(isEven(8));
+
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+    if (i % 3 === 0) row.style.backgroundColor = 'blue';
+  });
+});
