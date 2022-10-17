@@ -311,6 +311,35 @@ console.log(diameter);
 */
 
 // BigInt
+/*
 console.log(2 ** 53 - 1);
 console.log(Number.MAX_SAFE_INTEGER);
 console.log(BigInt(78455987526458555555555555555558988888555));
+*/
+
+// Creating dates
+// const now = new Date();
+// console.log(now);
+// console.log(new Date('Mon Oct 17 2022 19:51:53'));
+// console.log(new Date('March 21, 2000'));
+/*
+console.log(new Date(account1.movementsDates.at(0)));
+console.log(new Date(9089, 7, 10, 9, 55, 21));
+console.log(new Date(5555, 2, 34));
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+*/
+// Working with dates
+const future = new Date(2044, 9, 12, 10, 44);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDay());
+console.log(future.getDate());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+console.log(new Date(future.getTime()));
+console.log(Date.now());
