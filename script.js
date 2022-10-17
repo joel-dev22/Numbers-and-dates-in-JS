@@ -308,4 +308,9 @@ labelBalance.addEventListener('click', function () {
 /*
 const diameter = 284_670_000_000;
 console.log(diameter);
-/
+*/
+
+// BigInt
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(BigInt(78455987526458555555555555555558988888555));
