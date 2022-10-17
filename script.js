@@ -290,6 +290,7 @@ console.log(+(2.3).toFixed(3));
 */
 
 // Remainder operator
+/*
 console.log(5 % 2);
 console.log(8 % 3);
 
@@ -302,3 +303,9 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+*/
+//Numeric seperator
+/*
+const diameter = 284_670_000_000;
+console.log(diameter);
+/
