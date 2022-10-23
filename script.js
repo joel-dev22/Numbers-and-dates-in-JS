@@ -280,13 +280,16 @@ btnLoan.addEventListener('click', function (e) {
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    // Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
+      // Update UI
+      updateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = '';
 });
@@ -437,3 +440,18 @@ console.log(new Intl.NumberFormat('de-DE', options).format(num));
 console.log(new Intl.NumberFormat('ar-SY', options).format(num));
 console.log(new Intl.NumberFormat(navigator.language).format(num));
 */
+/*
+const subjects = ['AIC', 'CO', 'ACE', 'AET'];
+const exams = setTimeout(
+  (sub1, sub2) => console.log(`${sub1}, ${sub2}`),
+  2000,
+  ...subjects
+);
+
+if (subjects.includes('AfET')) clearTimeout(exams);
+*/
+
+// setInterval(() => {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
