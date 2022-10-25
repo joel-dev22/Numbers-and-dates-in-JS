@@ -188,9 +188,34 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+// Timer
+const startLogoutTimer = function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = time % 60;
+    // In each call, print the remaining time
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // Decrease the time
+    time--;
+    // When 0 sec, stop the timer and logout the user
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = `Login to get started`;
+      containerApp.style.opacity = 0;
+    }
+  };
+  // Set time to 5 minutes
+  let time = 120;
+  // Call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
+
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
 // FAKE LOGGED IN
 currentAccount = account1;
@@ -242,6 +267,10 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
+    // Timer
+    if (timer) clearInterval(timer);
+    timer = startLogoutTimer();
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -270,6 +299,10 @@ btnTransfer.addEventListener('click', function (e) {
     receiverAcc.movementsDates.push(new Date().toISOString());
     // Update UI
     updateUI(currentAccount);
+
+    // Reset Timer
+    clearInterval(timer);
+    timer = startLogoutTimer();
   }
 });
 
@@ -289,6 +322,10 @@ btnLoan.addEventListener('click', function (e) {
 
       // Update UI
       updateUI(currentAccount);
+
+      // Reset Timer
+      clearInterval(timer);
+      timer = startLogoutTimer();
     }, 2500);
   }
   inputLoanAmount.value = '';
@@ -453,5 +490,6 @@ if (subjects.includes('AfET')) clearTimeout(exams);
 
 // setInterval(() => {
 //   const now = new Date();
-//   console.log(now);
-// }, 1000);
+//   const hour = now.getSeconds();
+//   console.log(hour);
+// });
